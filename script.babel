@@ -1,0 +1,30 @@
+function getDatamuse() {
+  var textareaInput = $("#forDatamuse").val();
+  var linkDatamuse = "https://api.datamuse.com/words?rel_rhy=" + textareaInput + "&max=25";
+  $.getJSON(linkDatamuse, function (data) {
+    data.forEach(function(element){
+      $( "#displayArea" ).append( element.word + "</br>" );
+    })
+  });
+}
+
+$("#datamuseTextareaButton").on("click", function() {
+  getDatamuse();
+})
+function screenOne() {
+ var one = 1;
+ document.getElementById("screen").innerHTML += "1";
+}
+
+function screenZero() {
+ var zero = 0;
+ document.getElementById("screen").innerHTML += "0";
+}
+
+function myFunction() {
+ document.getElementById("myCalculator").reset();
+}
+function Reset(){
+// alert( " Reset ");
+$("#displayArea").empty();
+}
